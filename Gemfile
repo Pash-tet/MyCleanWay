@@ -1,0 +1,46 @@
+source "https://rubygems.org"
+
+gem "bcrypt"
+gem "bootsnap", require: false
+
+# gem "image_processing", "~> 1.2"
+
+gem "kamal", require: false
+
+gem "pg"
+gem "propshaft"
+gem "puma"
+
+gem "rails", "~> 8.0.2"
+
+gem "solid_cache"
+gem "solid_queue"
+gem "solid_cable"
+gem "stimulus-rails"
+
+gem "thruster", require: false
+gem "turbo-rails"
+
+gem "vite_rails"
+
+group :development, :test do
+  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+
+  gem "brakeman", require: false
+
+  gem "rubocop-rails-omakase", require: false
+end
+
+group :development do
+  gem "prettier_print", "~> 1.2"
+  gem "syntax_tree", "~> 6.2"
+  gem "web-console"
+end
+
+group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "capybara"
+  gem "selenium-webdriver"
+end
+
+

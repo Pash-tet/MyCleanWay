@@ -1,0 +1,12 @@
+<h1 class="text-2xl text-amber-500">Hello <%= @name %> !!!</h1>
+<input type="checkbox" value="cupcake" class="toggle theme-controller" />
+<button class="btn btn-soft btn-secondary">CLICK ME</button>
+<div data-controller="hello">
+  <input type="text" class="input" data-hello-target="name" />
+  <button data-action="click->hello#greet" class="btn btn-soft btn-primary">Greet</button>
+  <span class="text-3xl text-green-400" data-hello-target="output"></span>
+</div>
+<% @sample_list.each do |game| %>
+  <%= game %>
+  <br />
+<% end %>
