@@ -1,0 +1,27 @@
+- if flash[:alert]
+  = tag.div(flash[:alert], style: "color:red")
+
+- if flash[:notice]
+  = tag.div(flash[:notice], style: "color:green")
+
+fieldset.fieldset.bg-base-200.border-base-300.rounded-box.md:w-md.border.p-4.m-4
+  legend.fieldset-legend.text-2xl Вход
+  = form_with url: session_path do |form|
+    fieldset.fieldset
+      legend.fieldset-legend Ник
+      = form.text_field :name,
+              required: true,
+              autofocus: true,
+              autocomplete: "username",
+              placeholder: "Введите свой ник",
+              class: "input w-full",
+              value: params[:name]
+
+    = render partial: "shared/password_field",
+            locals: { label: "Пароль", name: :password, placeholder: "Введите пароль", form: form }
+
+    .divider
+      | Нет аккаунта?
+      = link_to "Зарегистрироваться", new_user_path, class: "link link-secondary"
+
+    = form.submit "Вход", class: "btn btn-neutral w-full"

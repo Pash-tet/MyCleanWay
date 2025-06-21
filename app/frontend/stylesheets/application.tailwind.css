@@ -3,6 +3,6 @@
   themes: cupcake --default, dracula --prefersdark;
 }
 
-@source "../../../app/views/**/*.html.erb";
+@source "../../../app/views/**/*.html.slim";
 @source "../../../app/views/**/*.rb";
 @source "../../../app/helpers/**/*.rb";

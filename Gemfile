@@ -26,10 +26,8 @@ gem "turbo-rails"
 gem "vite_rails"
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-
   gem "brakeman", require: false
-
+  gem "byebug"
   gem "rubocop-rails-omakase", require: false
 end
 

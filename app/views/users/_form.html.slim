@@ -1,0 +1,27 @@
+- errors = resource_user.errors
+fieldset.fieldset.bg-base-200.border-base-300.rounded-box.md:w-md.border.p-4.m-4
+  legend.fieldset-legend.text-2xl Регистрация
+  = form_with model: resource_user, url: users_path do |form|
+    fieldset.fieldset
+      legend.fieldset-legend Ник
+      = form.text_field :name,
+              required: true,
+              autofocus: true,
+              autocomplete: "username",
+              placeholder: "Введите свой ник",
+              class: "input w-full #{errors[:name].present? ? "input-error" : ""}",
+              value: "pasha"
+      - if errors[:name].present?
+        p.label.text-error = errors[:name].join(",")
+
+    = render partial: "shared/password_field",
+            locals: { label: "Пароль", name: :password, placeholder: "Введите пароль", form: form }
+
+    = render partial: "shared/password_field",
+            locals: { label: "Подтверждение пароля", name: :password_confirmation, placeholder: "Введите пароль ещё раз", form: form }
+
+    .divider
+      | Есть аккаунт?
+      = link_to "Войти", new_session_path, class: "link link-secondary"
+
+    = form.submit "Регистрация", class: "btn btn-neutral w-full"

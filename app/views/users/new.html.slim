@@ -1,0 +1,8 @@
+- if flash[:alert]
+  = tag.div(flash[:alert], style: "color:red")
+
+- if flash[:notice]
+  = tag.div(flash[:notice], style: "color:green")
+
+= turbo_frame_tag :user_form do
+  = render "form", user: @user
