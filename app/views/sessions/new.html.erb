@@ -1,23 +1,36 @@
 <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
 <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
-<input type="checkbox" value="synthwave" class="toggle theme-controller" />
-<h1>AAAAA!!!</h1>
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address,
-                       required: true,
-                       autofocus: true,
-                       autocomplete: "username",
-                       placeholder: "Enter your email address",
-                       value: params[:email_address] %>
-  <br />
-  <%= form.password_field :password,
-                          required: true,
-                          autocomplete: "current-password",
-                          placeholder: "Enter your password",
-                          maxlength: 72 %>
-  <br />
-  <%= form.submit "Sign in" %>
-<% end %>
-<br />
 
-<%= link_to "Forgot password?", new_password_path %>
+<div class="card bg-base-200 shadow-sm sm:w-full md:m-4 md:w-96">
+  <h2 class="card-title">Вход</h2>
+  <%= form_with url: session_path do |form| %>
+    <div class="card-body">
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Ник</legend>
+        <%= form.email_field :name,
+                             required: true,
+                             autofocus: true,
+                             autocomplete: "username",
+                             placeholder: "Введите свой ник",
+                             class: "input",
+                             value: params[:name] %>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend">Пароль</legend>
+        <%= form.password_field :password,
+                                required: true,
+                                autocomplete: "current-password",
+                                placeholder: "Введите пароль",
+                                class: "input",
+                                maxlength: 72 %>
+      </fieldset>
+    </div>
+    <div class="divider">
+      Нет аккаунта? <%= link_to "Зарегистрироваться", new_user_path, class: "link link-secondary" %>
+    </div>
+
+    <div class="card-actions justify-center p-2">
+      <%= form.submit "Вход", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

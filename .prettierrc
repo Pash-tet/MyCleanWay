@@ -1,4 +1,10 @@
 {
-  "plugins": ["@prettier/plugin-ruby", "@4az/prettier-plugin-html-erb"],
-  "printWidth": 120
+  "plugins": [
+    "@prettier/plugin-ruby",
+    "@4az/prettier-plugin-html-erb",
+    "prettier-plugin-tailwindcss",
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "printWidth": 100,
+  "semi": false
 }

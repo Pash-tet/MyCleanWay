@@ -1,0 +1,30 @@
+<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+
+<fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  <legend class="fieldset-legend">Регистрация</legend>
+  <%= form_with url: users_path do |form| %>
+    <label class="label">Ник</label>
+    <%= form.email_field :name,
+                         required: true,
+                         autofocus: true,
+                         autocomplete: "username",
+                         placeholder: "Введите свой ник",
+                         class: "input",
+                         value: params[:name] %>
+    <%= render partial: "shared/password_field",
+               locals: {
+                 label: "Пароль",
+                 name: :password,
+                 placeholder: "Введите пароль",
+                 form:,
+               } %>
+    <%= render partial: "shared/password_field",
+               locals: {
+                 label: "Подтверждение пароля",
+                 name: :password_confirmation,
+                 placeholder: "Введите пароль ещё раз",
+                 form:,
+               } %>
+  <% end %>
+</fieldset>
